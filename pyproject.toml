@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "library0"
+version = "0.0.1"
+description = "Open-cataloging-protocol tooling — schemas, federation envelopes, signed Parquet+DuckLake snapshots."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+authors = [{ name = "Ray Voelker" }]
+dependencies = [
+  "click>=8.1",
+  "python-frontmatter>=1.1",
+  "jsonschema>=4.21",
+  "edtf>=4.0",
+  "pyarrow>=15.0",
+  "duckdb>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov>=5.0"]
+
+[project.scripts]
+library0 = "library0.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
